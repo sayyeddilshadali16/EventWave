@@ -17,13 +17,21 @@ app.use(
   })
 );
 
+app.use(express.static(path.join(__dirname, "/frontend/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+});
+
 app.use("/uploads", express.static("uploads"));
 
 mongoose
-  .connect("mongodb+srv://dilshad:dilshad@todoapp.1lge6ge.mongodb.net/eventwave?retryWrites=true&w=majority&appName=todoapp", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://dilshad:dilshad@todoapp.1lge6ge.mongodb.net/eventwave?retryWrites=true&w=majority&appName=todoapp",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Connected to MongoDB");
   })
