@@ -10,7 +10,7 @@ const EventDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8084/events/${id}`);
+        const response = await axios.get(`https://event-wave.vercel.app/events/${id}`);
         setEvent(response.data);
       } catch (err) {
         console.log(err);

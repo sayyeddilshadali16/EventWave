@@ -32,7 +32,7 @@ const CreateEvent = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8084/events",
+        "https://event-wave.vercel.app/events",
         formData,
         {
           headers: {
