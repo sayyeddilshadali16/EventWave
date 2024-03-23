@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const CreateEvent = () => {
   const [title, setTitle] = useState("");
@@ -12,6 +13,7 @@ const CreateEvent = () => {
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
+  const [postingStatus, setPostingStatus] = useState(null);
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -29,11 +31,15 @@ const CreateEvent = () => {
     console.log("FormData:", formData);
 
     try {
-      const response = await axios.post("http://localhost:8084/events", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:8084/events",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       console.log("Response:", response.data);
       setTitle("");
       setCategory("");
@@ -45,19 +51,27 @@ const CreateEvent = () => {
       setUrl("");
       setDescription("");
       setImageUrl("");
+      setPostingStatus("success");
     } catch (error) {
       console.log(error);
+      setPostingStatus("error");
     }
   };
 
   return (
     <div className="w-full h-screen">
-      <div className="p-28 pb-20">
+      <div className="p-28 pb-20 px-20 flex items-center">
+      <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "9vw" }}
+          transition={{ ease: [0.76, 0, 0.24, 1], duration: 1 }}
+          className="mr-2 w-[6vw] h-[4.5vw] mb-2 bg-[url('https://images.unsplash.com/photo-1643759543584-fb6f448d42d4?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-no-repeat rounded-md"
+        ></motion.div>
         <h1 className="text-[5vw] leading-[4vw] font-semibold uppercase tracking-tighter">
           Create event
         </h1>
-        <p className="mt-20 text-gray-700">Fill the form below:</p>
       </div>
+        <p className="mb-12 ml-28 text-gray-700">Fill the form below:</p>
       <div className="form px-28 text-xl leading-10">
         <form action="">
           <label htmlFor="title">
@@ -199,6 +213,33 @@ const CreateEvent = () => {
               <div className="w-2 h-2 bg-zinc-100 rounded-full"></div>
             </button>
           </div>
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 50,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.5,
+            }}
+          >
+            {" "}
+            {postingStatus === "success" && (
+              <button className="tracking-tighter flex gap-3 items-center px-5 bg-green-500 rounded-full text-white uppercase">
+                Event posted successfully
+                <div className="w-2 h-2 bg-zinc-100 rounded-full"></div>
+              </button>
+            )}
+            {postingStatus === "error" && (
+              <button className="tracking-tighter flex gap-3 items-center px-5 bg-green-500 rounded-full text-white uppercase">
+                Error posting Event
+                <div className="w-2 h-2 bg-zinc-100 rounded-full"></div>
+              </button>
+            )}
+          </motion.div>
         </form>
       </div>
     </div>

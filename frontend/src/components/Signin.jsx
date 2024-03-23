@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SignForm = () => {
   const [showCard, setShowCard] = useState(false);
@@ -61,7 +62,13 @@ const SignupCard = ({ onSigninClick }) => {
   };
   return (
     <div>
-      <div className="p-28 pb-20">
+      <div className="p-28 px-20 pb-20 flex items-center">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "9vw" }}
+          transition={{ ease: [0.76, 0, 0.24, 1], duration: 1 }}
+          className="mr-2 w-[6vw] h-[4.5vw] mb-2 bg-[url('https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-no-repeat rounded-md"
+        ></motion.div>
         <h1 className="text-[5vw] leading-[4vw] font-semibold uppercase tracking-tighter">
           Create account
         </h1>
@@ -116,7 +123,7 @@ const SignupCard = ({ onSigninClick }) => {
   );
 };
 
-const LoginCard = ({ onLoginClick }) => {
+const LoginCard = () => {
   const history = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -162,7 +169,13 @@ const LoginCard = ({ onLoginClick }) => {
   };
   return (
     <div>
-      <div className="p-28 pb-20">
+      <div className="p-28 pb-20 px-20 flex items-center">
+      <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "9vw" }}
+          transition={{ ease: [0.76, 0, 0.24, 1], duration: 1 }}
+          className="mr-2 w-[6vw] h-[4.5vw] mb-2 bg-[url('https://images.unsplash.com/photo-1544502062-f82887f03d1c?q=80&w=1918&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-no-repeat rounded-md"
+        ></motion.div>
         <h1 className="text-[5vw] leading-[4vw] font-semibold uppercase tracking-tighter">
           Login to your account
         </h1>
@@ -196,7 +209,6 @@ const LoginCard = ({ onLoginClick }) => {
           <div className="mt-10 flex items-center justify-end">
             <button
               type="submit"
-              onClick={onLoginClick}
               className="tracking-tighter flex gap-3 items-center px-5 bg-zinc-500 rounded-full text-white uppercase"
             >
               Get into your account

@@ -20,7 +20,7 @@ app.use(
 app.use("/uploads", express.static("uploads"));
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/eventwave", {
+  .connect("mongodb+srv://dilshad:dilshad@todoapp.1lge6ge.mongodb.net/eventwave?retryWrites=true&w=majority&appName=todoapp", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

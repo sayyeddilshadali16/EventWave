@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import {motion} from "framer-motion";
 
 const EventDetails = () => {
   const [event, setEvent] = useState(null);
@@ -36,13 +37,20 @@ const EventDetails = () => {
 
   return (
     <div className="w-full min-h-screen">
-      <div className="p-28 pb-20 w-full">
+      <div className="pt-28 px-20  w-full flex items-center">
+      <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "9vw" }}
+          transition={{ ease: [0.76, 0, 0.24, 1], duration: 1 }}
+          className="mr-2 w-[6vw] h-[4.5vw] mb-2 bg-[url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-no-repeat rounded-md"
+        ></motion.div>
         <h1 className="text-[5vw] leading-[4vw] font-semibold uppercase tracking-tighter">
           Event Details
         </h1>
+        </div>
         <div
           key={event._id}
-          className="event-container w-full flex items-center justify-center gap-20 mt-20"
+          className="event-container w-full flex items-center justify-center gap-20 p-28"
         >
           <div
             className="image-container w-[50%] h-[50vh] bg-cover bg-no-repeat bg-center rounded-xl"
@@ -82,7 +90,7 @@ const EventDetails = () => {
             </div>
           </div>
         </div>
-      </div>
+      
     </div>
   );
 };
