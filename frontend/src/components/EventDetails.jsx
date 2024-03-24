@@ -55,7 +55,7 @@ const EventDetails = () => {
           <div
             className="image-container w-[50%] h-[50vh] bg-cover bg-no-repeat bg-center rounded-xl"
             style={{
-              backgroundImage: `url(http://localhost:8084${event.imageurl})`,
+              backgroundImage: `url(https://event-wave.vercel.app${event.imageurl})`,
             }}
           ></div>
           <div className="detail-container w-[50%] min-h-[50vh]">

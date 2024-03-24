@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const Cards = ({ data, onDelete }) => {
   const [selected, setSelected] = useState(null);
@@ -34,7 +33,7 @@ const Cards = ({ data, onDelete }) => {
           <motion.div layoutId={`card-${selected.id}`}>
             <img
               className="rounded-2xl"
-              src={`http://localhost:8084${selected.imageurl}`}
+              src={`https://event-wave.vercel.app${selected.imageurl}`}
             />
           </motion.div>
           <motion.div
@@ -95,7 +94,7 @@ const Cards = ({ data, onDelete }) => {
             setSelected(item);
           }}
           layoutId={`card-${item._id}`}
-          src={`http://localhost:8084${item.imageurl}`}
+          src={`https://event-wave.vercel.app${item.imageurl}`}
           className="w-full bg-base-100 image-full cursor-pointer rounded-xl"
         />
         <div className="text-center bg-gray-300 p-2 rounded-xl mt-2">
