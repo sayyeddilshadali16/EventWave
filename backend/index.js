@@ -6,16 +6,17 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 const port = 8084;
+require("dotenv").config();
 
 const app = express();
 
-app.use(cors(
-  {
+app.use(
+  cors({
     origin: [""],
-    methods: ["POST","GET","PUT", "DELETE"],
-    credentials: true
-  }
-));
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(
   express.urlencoded({
@@ -26,13 +27,10 @@ app.use(
 app.use("/uploads", express.static("uploads"));
 
 mongoose
-  .connect(
-    "mongodb+srv://dilshad:dilshad@todoapp.1lge6ge.mongodb.net/eventwave?retryWrites=true&w=majority&appName=todoapp",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to MongoDB");
   })
