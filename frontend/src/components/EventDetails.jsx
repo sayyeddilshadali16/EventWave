@@ -10,7 +10,7 @@ const EventDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://event-wave.vercel.app/events/${id}`);
+        const response = await axios.get(`https://eventwave-sayyeddilshadali.onrender.com/events/${id}`);
         setEvent(response.data);
       } catch (err) {
         console.log(err);
@@ -55,7 +55,7 @@ const EventDetails = () => {
           <div
             className="image-container w-[50%] h-[50vh] bg-cover bg-no-repeat bg-center rounded-xl"
             style={{
-              backgroundImage: `url(https://event-wave.vercel.app${event.imageurl})`,
+              backgroundImage: `url(https://eventwave-sayyeddilshadali.onrender.com${event.imageurl})`,
             }}
           ></div>
           <div className="detail-container w-[50%] min-h-[50vh]">

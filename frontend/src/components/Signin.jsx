@@ -47,7 +47,7 @@ const SignupCard = ({ onSigninClick }) => {
     }
 
     try {
-      const res = await axios.post("https://event-wave.vercel.app/signup", {
+      const res = await axios.post("https://eventwave-sayyeddilshadali.onrender.com/signup", {
         username,
         password,
       });
@@ -144,7 +144,7 @@ const LoginCard = () => {
     }
 
     try {
-      const res = await axios.post("https://event-wave.vercel.app/signup", {
+      const res = await axios.post("https://eventwave-sayyeddilshadali.onrender.com/signup", {
         username,
         password,
       });

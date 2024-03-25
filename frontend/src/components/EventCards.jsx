@@ -16,7 +16,7 @@ const EventCards = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://event-wave.vercel.app/events");
+      const response = await axios.get("https://eventwave-sayyeddilshadali.onrender.com/events");
       setFilteredData(response.data);
       setAllData(response.data);
       setLoading(false);

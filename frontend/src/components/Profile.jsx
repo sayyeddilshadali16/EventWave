@@ -14,7 +14,7 @@ const Profile = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://event-wave.vercel.app/events");
+      const response = await axios.get("https://eventwave-sayyeddilshadali.onrender.com/events");
       setData(response.data);
       setLoading(false);
     } catch (error) {
@@ -26,7 +26,7 @@ const Profile = () => {
 
   const deleteEvent = async (id) => {
     try {
-      await axios.delete(`https://event-wave.vercel.app/events/${id}`);
+      await axios.delete(`https://eventwave-sayyeddilshadali.onrender.com/events/${id}`);
       fetchData();
     } catch (error) {
       console.error("Error deleting event:", error);
