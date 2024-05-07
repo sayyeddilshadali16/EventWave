@@ -32,7 +32,7 @@ const CreateEvent = () => {
 
     try {
       const response = await axios.post(
-        "https://eventwave-sayyeddilshadali.onrender.com/events",
+        "http://localhost:8084/events",
         formData,
         {
           headers: {

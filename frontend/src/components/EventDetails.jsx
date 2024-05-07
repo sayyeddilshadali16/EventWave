@@ -10,7 +10,7 @@ const EventDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://eventwave-sayyeddilshadali.onrender.com/events/${id}`);
+        const response = await axios.get(`http://localhost:8084/events/${id}`);
         setEvent(response.data);
       } catch (err) {
         console.log(err);
@@ -55,7 +55,7 @@ const EventDetails = () => {
           <div
             className="image-container w-[50%] h-[50vh] bg-cover bg-no-repeat bg-center rounded-xl"
             style={{
-              backgroundImage: `url(https://eventwave-sayyeddilshadali.onrender.com${event.imageurl})`,
+              backgroundImage: `url(http://localhost:8084${event.imageurl})`,
             }}
           ></div>
           <div className="detail-container w-[50%] min-h-[50vh]">

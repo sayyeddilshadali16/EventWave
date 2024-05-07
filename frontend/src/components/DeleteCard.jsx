@@ -33,7 +33,7 @@ const Cards = ({ data, onDelete }) => {
           <motion.div layoutId={`card-${selected.id}`}>
             <img
               className="rounded-2xl"
-              src={`https://eventwave-sayyeddilshadali.onrender.com${selected.imageurl}`}
+              src={`http://localhost:8084${selected.imageurl}`}
             />
           </motion.div>
           <motion.div
@@ -94,7 +94,7 @@ const Cards = ({ data, onDelete }) => {
             setSelected(item);
           }}
           layoutId={`card-${item._id}`}
-          src={`https://eventwave-sayyeddilshadali.onrender.com${item.imageurl}`}
+          src={`http://localhost:8084${item.imageurl}`}
           className="w-full bg-base-100 image-full cursor-pointer rounded-xl"
         />
         <div className="text-center bg-gray-300 p-2 rounded-xl mt-2">

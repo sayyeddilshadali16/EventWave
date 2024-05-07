@@ -47,7 +47,7 @@ const SignupCard = ({ onSigninClick }) => {
     }
 
     try {
-      const res = await axios.post("https://eventwave-sayyeddilshadali.onrender.com/signup", {
+      const res = await axios.post("http://localhost:8084/signup", {
         username,
         password,
       });
@@ -144,7 +144,7 @@ const LoginCard = () => {
     }
 
     try {
-      const res = await axios.post("https://eventwave-sayyeddilshadali.onrender.com/signup", {
+      const res = await axios.post("http://localhost:8084/signup", {
         username,
         password,
       });

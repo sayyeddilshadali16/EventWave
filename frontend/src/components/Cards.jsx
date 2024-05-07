@@ -32,7 +32,7 @@ const Cards = ({ data }) => {
           className="w-full max-w-[700px] mx-auto my-8 px-8 cursor-default"
         >
           <motion.div layoutId={`card-${selected.id}`}>
-            <img className="rounded-2xl" src={`https://eventwave-sayyeddilshadali.onrender.com${selected.imageurl}`} />
+            <img className="rounded-2xl" src={`http://localhost:8084${selected.imageurl}`} />
           </motion.div>
           <motion.div
             initial={{
@@ -92,7 +92,7 @@ const Cards = ({ data }) => {
             setSelected(item);
           }}
           layoutId={`card-${item._id}`}
-          src={`https://eventwave-sayyeddilshadali.onrender.com${item.imageurl}`}
+          src={`http://localhost:8084${item.imageurl}`}
           className="w-full bg-base-100 image-full cursor-pointer rounded-xl"
         />
         <div className="text-center bg-gray-300 p-2 rounded-xl mt-2">
