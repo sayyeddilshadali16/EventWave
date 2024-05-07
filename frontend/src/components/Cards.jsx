@@ -32,7 +32,7 @@ const Cards = ({ data }) => {
           className="w-full max-w-[700px] mx-auto my-8 px-8 cursor-default"
         >
           <motion.div layoutId={`card-${selected.id}`}>
-            <img className="rounded-2xl" src={`https://eventwave-sayyeddilshadali.onrender.com/${selected.imageurl}`} />
+            <img className="rounded-2xl" src={`https://eventwave-sayyeddilshadali.onrender.com${selected.imageurl}`} />
           </motion.div>
           <motion.div
             initial={{

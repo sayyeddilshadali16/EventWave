@@ -55,7 +55,7 @@ const EventDetails = () => {
           <div
             className="image-container w-[50%] h-[50vh] bg-cover bg-no-repeat bg-center rounded-xl"
             style={{
-              backgroundImage: `url(https://eventwave-sayyeddilshadali.onrender.com/${event.imageurl})`,
+              backgroundImage: `url(https://eventwave-sayyeddilshadali.onrender.com${event.imageurl})`,
             }}
           ></div>
           <div className="detail-container w-[50%] min-h-[50vh]">
